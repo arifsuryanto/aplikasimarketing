@@ -76,5 +76,18 @@
         return $this->db //sudah bawaan dari CI
                     ->insert($table,$value);//function insert bawaan dari CI
         }
+
+        public function getCustomer()
+        {
+            $this->db->select('activity.id_activity');
+            $this->db->select('customer.nama_customer');
+            $this->db->select('COUNT(activity.id_customer) AS n' );
+            $this->db->from('activity');
+            $this->db->join('customer','activity.id_customer = customer.id_customer');
+            $this->db->group_by('activity.id_customer');
+            $this->db->order_by('customer.nama_customer');
+            $query=$this->db->get()->result();
+            return $query;
+            }
     }
 ?>

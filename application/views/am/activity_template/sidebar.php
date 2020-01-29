@@ -24,7 +24,7 @@
 							<div class="collapse in" id="collapseExample">
 								<ul class="nav">
 									<li>
-										<a href="<?=base_url('activity/profile')?>">
+										<a href="<?=base_url('activity_am/profile')?>">
 											<span class="link-collapse">My Profile</span>
 										</a>
 									</li>
@@ -44,19 +44,19 @@
 					</div>
 					<ul class="nav nav-primary">
 						<li class="nav-item">
-							<a class="nav-link" href="<?=base_url('activity/index')?>">
+							<a class="nav-link" href="<?=base_url('activity_am/index')?>">
 								<span>Plan</>
 							</a>
                         </li>
                         
 						<li class="nav-item">
-							<a class="nav-link" href="<?=base_url('activity/activity')?>">
+							<a class="nav-link" href="<?=base_url('activity_am/activity')?>">
 								<span>Activity</span>
 							</a>
                         </li>
                         
 						<li class="nav-item">
-							<a class="nav-link" href="<?=base_url('activity/customer')?>">
+							<a class="nav-link" href="<?=base_url('activity_am/customer')?>">
 								<span>Customer</span>
 							</a>
 						</li>
@@ -64,4 +64,4 @@
 				</div>
 			</div>
 		</div>
-		<!-- End Sidebar
+		<!-- End Sidebar -->
