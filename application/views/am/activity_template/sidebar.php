@@ -1,4 +1,4 @@
-<!-- Sidebar -->
+<!-- Sidebar --> 
 <div class="sidebar sidebar-style-2">			
 			<div class="sidebar-wrapper scrollbar scrollbar-inner">
 				<div class="sidebar-content">
@@ -9,8 +9,13 @@
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Hizrian
-									<span class="user-level">Administrator</span>
+									
+								<?php
+									echo $this->session->userdata('kode_am'); 
+									
+								?>
+								
+									<span class="user-level">Account Marketing</span>
 									<span class="caret"></span>
 								</span>
 							</a>
@@ -19,7 +24,7 @@
 							<div class="collapse in" id="collapseExample">
 								<ul class="nav">
 									<li>
-										<a href="<?=base_url('activity_am/profile')?>">
+										<a href="<?=base_url('activity/profile')?>">
 											<span class="link-collapse">My Profile</span>
 										</a>
 									</li>
@@ -39,19 +44,19 @@
 					</div>
 					<ul class="nav nav-primary">
 						<li class="nav-item">
-							<a class="nav-link" href="<?=base_url('activity_am/index')?>">
+							<a class="nav-link" href="<?=base_url('activity/index')?>">
 								<span>Plan</>
 							</a>
                         </li>
                         
 						<li class="nav-item">
-							<a class="nav-link" href="<?=base_url('activity_am/activity')?>">
+							<a class="nav-link" href="<?=base_url('activity/activity')?>">
 								<span>Activity</span>
 							</a>
                         </li>
                         
 						<li class="nav-item">
-							<a class="nav-link" href="<?=base_url('activity_am/customer')?>">
+							<a class="nav-link" href="<?=base_url('activity/customer')?>">
 								<span>Customer</span>
 							</a>
 						</li>
@@ -59,4 +64,4 @@
 				</div>
 			</div>
 		</div>
-		<!-- End Sidebar -->
+		<!-- End Sidebar
