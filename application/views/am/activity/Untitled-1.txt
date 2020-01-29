@@ -133,3 +133,75 @@
 					</div>
 				</div>
             </div>
+
+
+			
+
+
+
+  var myBarChart = document.getElementById('myBarChart').getContext('2d');
+  var dataNama =[];
+  var dataJumlah = [];
+
+  var settings = {
+      "url": "getCust",
+      "method": "POST",
+      "timeout": 0,
+    };
+    
+    $.ajax(settings).done(function (response) {
+      var obj = JSON.parse(response);
+    
+   
+    $.each(obj, function(i,c){
+      dataNama.push(c.nama_customer);
+      dataJumlah.push(c.n);
+    }); });
+  
+  var myBarChart = new Chart(myBarChart, {
+	type: 'horizontalBar',
+	data: {
+		labels:dataNama,
+		datasets : [{
+			label: "Customers",
+			backgroundColor: 'rgb(23, 125, 255)',
+			borderColor: 'rgb(23, 125, 255)',
+			data:dataJumlah,
+		}],
+	},
+      options:{
+        responsive: true,
+        maintainAspectRatio: false,
+        title:{
+          display:true,
+          text:'Chart Customer',
+          fontSize:25
+        },
+        legend:{
+          display:true,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        scales:{
+          xAxes: [{
+            ticks: {
+              min: 0,
+            }
+        }
+      ]},
+        layout:{
+          padding:{
+            left: 10,
+            right: 25,
+            top: 10,
+            bottom: 0
+          }
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+  }); 

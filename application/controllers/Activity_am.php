@@ -121,6 +121,11 @@ class Activity_am extends CI_Controller {
     redirect(base_url('activity_am'));
     }
     
+    public function getCust()
+	{
+        $data=$this->modelActivity_am->getCustomer();
+        echo json_encode($data);
+    }
     
     
 }

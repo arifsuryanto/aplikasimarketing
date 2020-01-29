@@ -1,4 +1,4 @@
-<!-- Sidebar -->
+<!-- Sidebar --> 
 <div class="sidebar sidebar-style-2">			
 			<div class="sidebar-wrapper scrollbar scrollbar-inner">
 				<div class="sidebar-content">
@@ -9,8 +9,13 @@
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Hizrian
-									<span class="user-level">Administrator</span>
+									
+								<?php
+									echo $this->session->userdata('kode_am'); 
+									
+								?>
+								
+									<span class="user-level">Account Marketing</span>
 									<span class="caret"></span>
 								</span>
 							</a>
