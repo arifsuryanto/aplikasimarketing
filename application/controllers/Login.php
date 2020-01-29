@@ -38,7 +38,7 @@ class Login extends CI_Controller
 				{
 					$this->load->view('sp/menu');
 					//$this->load->view('template/menu');
-				}
+				}//$this->load->view('template/menu');
 				else 
 				{
 					//$this->load->view('am/menu');
