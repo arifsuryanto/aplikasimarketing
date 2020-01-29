@@ -84,7 +84,7 @@ class Activity_am extends CI_Controller {
 		    foreach ($result as $row)
             $arr_result[] = array(
                 'label'			=> $row->nama_customer,
-                'id'            => $row->id_activity
+                'id'            => $row->id_customer
             );
              echo json_encode($arr_result);
 		   	}

@@ -28,7 +28,7 @@
 													</button>
 												</div>
 												<div class="modal-body">
-													<form method="post" action="">
+													<form  action="<?=base_url('activity_am/addCustomer')?>" method="post">
 																<div class="form-group">
 																	<label>Name Activity</label>
 																	<input name="name_activity" id="name_activity" type="text" class="form-control" placeholder="Fill Name Activity">
@@ -36,32 +36,20 @@
 
 																<div class="form-group ui-front">
 																	<label>Type</label>
-																	<input id="type" name="type" type="text" class="form-control" placeholder="Fill Type">
-																
-																<!-- Autocomplete type -->
-																<link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
-																<link rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'?>">
-																<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-																<script src="<?php echo base_url().'assets/js/bootstrap.js'?>" type="text/javascript"></script>
-																<script src="<?php echo base_url().'assets/js/jquery-ui.js'?>" type="text/javascript"></script>
-																
-																<script type="text/javascript">
-															
-																	$(document).ready(function(){
-
-																	$('#type').autocomplete({
-																			source: "<?php echo base_url('activity_am/autocomplete_type');?>",
-																			
-																		});
-																	
-																});
-																</script>
-																<!--  END Autocomplete type -->
+																															
+																	<select  id="type" name="type" class="form-control">
+																		<option value="1">Administration</option>
+																		<option value="2">Call</option>
+																		<option value="3">Email/Fax</option>
+																		<option value="4">Product Presentation</option>
+																		<option value="5">Visitation</option>
+																	</select>
 																</div>
 
 																<div class="form-group ui-front">
 																	<label>Customer</label>
 																	<input id="customer" name="customer" type="text" class="form-control" placeholder="Fill Customer">
+																	<input id="id" name="id_customer" type="hidden" class="form-control" placeholder="Fill Customer">
 																
 																<!-- Autocomplete customer -->
 																<link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
@@ -76,6 +64,10 @@
 
 																	$('#customer').autocomplete({
 																			source: "<?php echo base_url('activity_am/get_autocomplete');?>",
+																			select: function (event, ui) {
+																			$('[name="customer"]').val(ui.item.customer); 
+																			$('[name="id_customer"]').val(ui.item.id); 
+																			  }
 																		});
 																});
 																</script>
@@ -83,32 +75,20 @@
 																<button class="btn btn-warning">Add Customer</button>
 																</div>
 
-																<div class="form-group ui-front">
+																<div class="form-group">
 																	<label>Stage</label>
-																	<input id="stage" name="stage" type="text" class="form-control" placeholder="Fill Stage">
-																
-																<!-- Autocomplete stage -->
-																<link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
-																<link rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'?>">
-																<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-																<script src="<?php echo base_url().'assets/js/bootstrap.js'?>" type="text/javascript"></script>
-																<script src="<?php echo base_url().'assets/js/jquery-ui.js'?>" type="text/javascript"></script>
-																
-																<script type="text/javascript">
-										
-																	$(document).ready(function(){
-
-																	$('#stage').autocomplete({
-																			source: "<?php echo base_url('activity_am/autocomplete_stage');?>",
-																		});
-																});
-																</script>
-																<!--  END Autocomplete stage -->
+																	<select  id="stage" name="stage" class="form-control">
+																		<option value="1">Open Prospect</option>
+																		<option value="2">Prospecting Progress	</option>
+																		<option value="3">Closing Deal</option>
+																		<option value="4">Deal</option>
+																		<option value="5">Project Progress</option>
+																	</select>
 																</div>
 
 																<div class="form-group">
 																	<label>Noted</label>
-																	<textarea name="note" id="note" class="form-control"></textarea>
+																	<input name="note" id="note" class="form-control">
 																</div>
 															
 														

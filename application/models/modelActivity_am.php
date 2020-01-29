@@ -9,18 +9,8 @@
             $this->db->limit(10);
             return $this->db->get('customer')->result();
         }
-        public function search_type($type){
-            $this->db->like('type', $type , 'both');
-            $this->db->order_by('type', 'ASC');
-            $this->db->limit(10);
-            return $this->db->get('type_act')->result();
-        }
-        public function search_stage($stage){
-            $this->db->like('stage', $stage , 'both');
-            $this->db->order_by('stage', 'ASC');
-            $this->db->limit(10);
-            return $this->db->get('stage')->result();
-        }
+       
+
         function getJoinPlan($kolom, $table1, $table2, $table3, $table4, $syarat1,$syarat2,$syarat3,$syarat4)
         {
             $this->db->select($kolom);
