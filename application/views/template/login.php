@@ -1,20 +1,20 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <title>Animated Login Form</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-</head>
+</head> -->
 <body>
-  <img class="wave" src="template/img/background.png">
+  <img class="wave" src="<?=base_url('template/')?>img/background.png">
   <div class="container-log">
     <div class="img">
-      <img src="template/img/project.svg">
+      <img src="<?=base_url('template/')?>img/project.svg">
     </div>
     <div class="login-content">
       <form action="<?= base_url('Login/login')?>" method ="post" >
-        <img src="template/img/avatar.svg">
+        <img src="<?=base_url('template/')?>img/avatar.svg">
         <h2 class="title">Welcome</h2>
               <div class="input-div one">
                  <div class="i">
@@ -39,8 +39,8 @@
             </form>
         </div>
     </div>
-    <script type="text/javascript" src="template/js/main.js"></script>
-</body>
+    <script type="text/javascript" src="<?=base_url('template/')?>js/main.js"></script>
+<!-- </body>
 </html>
 
-<?    ?>
+<?    ?> -->

@@ -38,6 +38,7 @@ class Login extends CI_Controller
 				{
 					$this->load->view('sp/menu');
 					//$this->load->view('template/menu');
+				}
 				else 
 				{
 					//$this->load->view('am/menu');
@@ -72,6 +73,14 @@ class Login extends CI_Controller
 	// 	$this->session->set_flashdata('message','<script languange="javascript">window.alert("register berhasil")</script>');
 	// 	redirect('/auth');
 	// }
+	public function about(){
+		$this->load->view('template/header');
+		$this->load->view('template/navbar');
+		$this->load->view('template/about');
+		$this->load->view('template/footer');
+		
+		
+	}
 
 }
  ?>

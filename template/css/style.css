@@ -2316,6 +2316,7 @@ ul {
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05);
   top: 0;
   background-color: #00c0ff;
+
 }
 
 /* line 149, /Applications/MAMP/htdocs/palash/cl/july 2019/189 travel/189 travel html/sass/_menu.scss */
@@ -2324,29 +2325,10 @@ ul {
 }
 
 /* line 155, /Applications/MAMP/htdocs/palash/cl/july 2019/189 travel/189 travel html/sass/_menu.scss */
-.dropdown .dropdown-menu {
-  transition: all 0.5s;
-  overflow: hidden;
-  transform-origin: top center;
-  transform: scale(1, 0);
-  display: block;
-  border: 0px solid transparent;
-  background-color: #ffcc00;
-}
+
 
 /* line 164, /Applications/MAMP/htdocs/palash/cl/july 2019/189 travel/189 travel html/sass/_menu.scss */
-.dropdown .dropdown-menu .dropdown-item {
-  font-size: 14px;
-  padding: 8px 20px !important;
-  color: #fff !important;
-  background-color: #ffcc00;
-  text-transform: capitalize;
-}
 
-/* line 175, /Applications/MAMP/htdocs/palash/cl/july 2019/189 travel/189 travel html/sass/_menu.scss */
-.dropdown:hover .dropdown-menu {
-  transform: scale(1);
-}
 
 @media (max-width: 991px) {
   /* line 184, /Applications/MAMP/htdocs/palash/cl/july 2019/189 travel/189 travel html/sass/_menu.scss */
@@ -2354,24 +2336,7 @@ ul {
     padding: 26px 0px;
   }
   /* line 188, /Applications/MAMP/htdocs/palash/cl/july 2019/189 travel/189 travel html/sass/_menu.scss */
-  .home_menu .main-menu-item {
-    padding-left: 0px;
-  }
-  /* line 192, /Applications/MAMP/htdocs/palash/cl/july 2019/189 travel/189 travel html/sass/_menu.scss */
-  .main_menu .main-menu-item {
-    text-align: left !important;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    margin-top: -9px;
-  }
-  /* line 196, /Applications/MAMP/htdocs/palash/cl/july 2019/189 travel/189 travel html/sass/_menu.scss */
-  .main_menu .main-menu-item .nav-item {
-    padding: 10px 15px !important;
-  }
-  /* line 199, /Applications/MAMP/htdocs/palash/cl/july 2019/189 travel/189 travel html/sass/_menu.scss */
-  .main_menu .main-menu-item .nav-item .nav-link {
-    padding: 5px 15px !important;
-    color: #000;
-  }
+  
   /* line 206, /Applications/MAMP/htdocs/palash/cl/july 2019/189 travel/189 travel html/sass/_menu.scss */
   .navbar-collapse {
     z-index: 9999 !important;
@@ -2383,25 +2348,7 @@ ul {
     text-align: center !important;
   }
   /* line 217, /Applications/MAMP/htdocs/palash/cl/july 2019/189 travel/189 travel html/sass/_menu.scss */
-  .dropdown .dropdown-menu {
-    transform: scale(1, 0);
-    display: none;
-    margin-top: 10px;
-  }
-  /* line 224, /Applications/MAMP/htdocs/palash/cl/july 2019/189 travel/189 travel html/sass/_menu.scss */
-  .dropdown:hover .dropdown-menu {
-    transform: scale(1);
-    display: block;
-    color: #ffcc00;
-  }
-  /* line 231, /Applications/MAMP/htdocs/palash/cl/july 2019/189 travel/189 travel html/sass/_menu.scss */
-  .dropdown .dropdown-item:hover {
-    color: #ffcc00 !important;
-  }
-  /* line 236, /Applications/MAMP/htdocs/palash/cl/july 2019/189 travel/189 travel html/sass/_menu.scss */
-  .navbar-light .navbar-toggler {
-    border-color: transparent;
-  }
+  
   /* line 241, /Applications/MAMP/htdocs/palash/cl/july 2019/189 travel/189 travel html/sass/_menu.scss */
   .menu_icon i {
     color: #fff;
@@ -5212,4 +5159,76 @@ a:hover{
   .service{
     width: 100%;
   }
+}
+
+
+.testimonial-section{
+
+  margin-top: 100px;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.inner-width{
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.testimonial-section h1{
+  font-weight: 400;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.testimonial-pics{
+  padding: 40px 0;
+}
+
+.testimonial-pics img{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 20px;
+  filter: grayscale(100%);
+  transition: .3s;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.testimonial-pics img:hover, .testimonial-pics img.active{
+  filter: none;
+}
+
+
+.testimonial-contents{
+  max-width: 600px;
+  margin: auto;
+}
+
+.testimonial{
+  display: none;
+}
+
+.testimonial.active{
+  display: block;
+}
+
+.testimonial p{
+  color: #5c5c5c;
+  margin-bottom: 20px;
+}
+
+.testimonial .description{
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 15px;
+}
+
+.upnlogo
+{
+  width: 100px;
+  
+  margin-top: 80px;
 }
