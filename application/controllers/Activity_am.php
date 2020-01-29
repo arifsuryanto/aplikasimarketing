@@ -84,35 +84,14 @@ class Activity_am extends CI_Controller {
 		    foreach ($result as $row)
             $arr_result[] = array(
                 'label'			=> $row->nama_customer,
-            );
-             echo json_encode($arr_result);
-		   	}
-		}
-	}
-    public function autocomplete_type(){
-		if (isset($_GET['term'])) {
-            $result = $this->modelActivity_am->search_type($_GET['term']);
-		   	if (count($result) > 0) {
-		    foreach ($result as $row)
-            $arr_result[] = array(
-                'label'			=> $row->type,
-            );
-             echo json_encode($arr_result);
-		   	}
-		}
-	}
-    public function autocomplete_stage(){
-		if (isset($_GET['term'])) {
-            $result = $this->modelActivity_am->search_stage($_GET['term']);
-		   	if (count($result) > 0) {
-		    foreach ($result as $row)
-            $arr_result[] = array(
-                'label'			=> $row->stage,
+                'id'            => $row->id_activity
             );
              echo json_encode($arr_result);
 		   	}
 		}
     }
+    
+    
     public function update($id_activity)
 	{
 		$update = [	'id_activity' => $id_activity,'done' => '1',
@@ -125,7 +104,42 @@ class Activity_am extends CI_Controller {
 	{
         $data=$this->modelActivity_am->getCustomer();
         echo json_encode($data);
+        
     }
+
+    public function addCust()
+    {
+        
+    }
+
+
+
+
+    // Ganti jadi select-Option
+    // public function autocomplete_type(){
+	// 	if (isset($_GET['term'])) {
+    //         $result = $this->modelActivity_am->search_type($_GET['term']);
+	// 	   	if (count($result) > 0) {
+	// 	    foreach ($result as $row)
+    //         $arr_result[] = array(
+    //             'label'			=> $row->type,
+    //         );
+    //          echo json_encode($arr_result);
+	// 	   	}
+	// 	}
+	// }
+    // public function autocomplete_stage(){
+	// 	if (isset($_GET['term'])) {
+    //         $result = $this->modelActivity_am->search_stage($_GET['term']);
+	// 	   	if (count($result) > 0) {
+	// 	    foreach ($result as $row)
+    //         $arr_result[] = array(
+    //             'label'			=> $row->stage,
+    //         );
+    //          echo json_encode($arr_result);
+	// 	   	}
+	// 	}
+    // }
     
     
 }

@@ -33,17 +33,13 @@ class Login extends CI_Controller
 				$this->session->set_userdata(array('kode_am'=>$kode_am));
 				$this->session->set_userdata(array('password'=>$password));		
 				
-				
 				if ($cek->previlege == "SPV") 
 				{
-					$this->load->view('sp/menu');
-					//$this->load->view('template/menu');
+					$this->load->view('menu/menu');
 				}
 				else 
-				{
-					//$this->load->view('am/menu');
-					redirect(base_url('activity_am/index'));
-					
+				{					
+					$this->load->view('menu/menu');
 				}
 			}
 			else
