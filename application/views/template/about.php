@@ -6,6 +6,9 @@
           <img src="<?=base_url('template/')?>img/upn.png" alt="test-3">
         </div>
         </center>
+        <div class="pa" style="margin-top: 30px">
+          <p>Universitas Pembangunan Nasional "Veteran" Yogyakarta</p>
+        </div>
         <div class="testimonial-pics">
           <img src="<?=base_url('template/')?>img/p1.png" alt="test-1" class="active">
           <img src="<?=base_url('template/')?>img/p2.png" alt="test-2">
