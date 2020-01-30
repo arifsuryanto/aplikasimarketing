@@ -20,27 +20,6 @@ class Activity_am extends CI_Controller {
     // bagian sidebar plan
     public function index()
 	{
-        // if($_POST['addPlan'])
-		// {
-        //     $name=$this->input->post('name');
-        //     $type=$this->input->post('type');
-        //     $customer=$this->input->post('customer');
-        //     $stage=$this->input->post('stage');
-        //     $note=$this->input->post('note');
-        //     $data=array
-		// 	(
-		// 		'name'=>$name,
-		// 		'type'=>$type,
-		// 		'customer'=>$customer,
-		// 		'stage'=>$stage,
-		// 		'note'=>$note
-        //     );
-        //     $insert=$this->modelActivity->insertData('plans',$data);
-		// 	if ($insert) 
-		// 	{
-		// 		redirect(base_url('activity/index'));
-		// 	}
-        // }
         $getPlan['plans']=$this->modelActivity_am->getJoinPlan("*","activity","type_act","stage",
         "customer","type_act.id_type=activity.id_type","stage.id_stage=activity.id_stage",
         "customer.id_customer=activity.id_customer","activity.done=0","time");
@@ -112,9 +91,9 @@ class Activity_am extends CI_Controller {
         
     }
     
-    public function addCust()
+    public function addPlan()
     {
-        $cust = array(
+        $plan = array(
 			'name_activity' => $this->input->post('name_activity'),
 			'id_type' => $this->input->post('type'),
             'id_customer' => $this->input->post('id_customer'),
@@ -122,39 +101,26 @@ class Activity_am extends CI_Controller {
             'note' => $this->input->post('note'),
             'id_am' =>$this->session->userdata('id_am')
 		);
-        $this->modelActivity_am->addCustomer($cust);
-        redirect('/Activity_am');
+        $this->modelActivity_am->addPlan($plan);
+        redirect('/Activity_am/index');
     }
 
+    public function UpdatePlan()
+    {
+        $plan = [
+            'id_activity' => $this->input->post('EditIdAct'),
+			'name_activity' => $this->input->post('EditNameAct'),
+			'id_type' => $this->input->post('EditType'),
+            'id_customer' => $this->input->post('EditIdCust'),
+            'id_stage' => $this->input->post('EditStage'),
+            'note' => $this->input->post('EditNote'),
+        ];
+        $data['$plan'] =  $this->modelActivity_am->UpdatePlan($plan);
+        redirect('/Activity_am/index');
+        
+    }
+  
 
-
-
-    // Ganti jadi select-Option
-    // public function autocomplete_type(){
-	// 	if (isset($_GET['term'])) {
-    //         $result = $this->modelActivity_am->search_type($_GET['term']);
-	// 	   	if (count($result) > 0) {
-	// 	    foreach ($result as $row)
-    //         $arr_result[] = array(
-    //             'label'			=> $row->type,
-    //         );
-    //          echo json_encode($arr_result);
-	// 	   	}
-	// 	}
-	// }
-    // public function autocomplete_stage(){
-	// 	if (isset($_GET['term'])) {
-    //         $result = $this->modelActivity_am->search_stage($_GET['term']);
-	// 	   	if (count($result) > 0) {
-	// 	    foreach ($result as $row)
-    //         $arr_result[] = array(
-    //             'label'			=> $row->stage,
-    //         );
-    //          echo json_encode($arr_result);
-	// 	   	}
-	// 	}
-    // }
-    
     
 }
 ?>
