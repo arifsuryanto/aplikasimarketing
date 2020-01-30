@@ -66,7 +66,25 @@ class Activity_am extends CI_Controller {
     }
     public function profile()
     {
-        $getProfile['profiles']=$this->modelActivity_am->getData("*","am",array('kode_am'=>$kode_am));
+        $kode_am=$_GET['kode_am'];
+        $where=array('kode_am'=>$kode_am);
+        $getProfile['profile']=$this->modelActivity_am->getData("*","am",$where);
+        if($_POST['change'])
+        {
+            $id= $this->input->post('id_am');
+            $kode_am=$this->input->post('kode_am');
+            $name=$this->input->post('nama_am');
+            $pass=$this->input->post('password');
+            $where=array('kode_am'=>$kode_am);
+            $data=array
+            (
+                'id_am'=>$id,
+                'kode_am'=>$kode_am,
+                'nama_am'=>$name,
+                'password'=>$pass
+            );
+            $this->modelActivity->updateData('am',$data,$where);
+        }
         $this->load->view ('am/activity_template/header',$data); 
         $this->load->view ('am/activity_template/sidebar',$data); 
         $this->load->view ('am/activity_template/topbar',$data); 
