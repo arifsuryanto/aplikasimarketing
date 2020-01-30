@@ -28,21 +28,22 @@
 													</button>
 												</div>
 												<div class="modal-body">
-													<form  action="<?=base_url('activity_am/addCustomer')?>" method="post">
+													<form  action="<?=base_url('activity_am/addCust')?>" method="post">
 																<div class="form-group">
 																	<label>Name Activity</label>
 																	<input name="name_activity" id="name_activity" type="text" class="form-control" placeholder="Fill Name Activity">
 																</div>
 
-																<div class="form-group ui-front">
+																<div class="form-group">
 																	<label>Type</label>
 																															
 																	<select  id="type" name="type" class="form-control">
-																		<option value="1">Administration</option>
-																		<option value="2">Call</option>
+																		<option value="1">Call</option>
+																		<option value="2">Administration</option>
 																		<option value="3">Email/Fax</option>
-																		<option value="4">Product Presentation</option>
+																		<option value="4">Customer Meeting</option>
 																		<option value="5">Visitation</option>
+																		<option value="6">Product Presentation</option>
 																	</select>
 																</div>
 
@@ -81,7 +82,7 @@
 																		<option value="1">Open Prospect</option>
 																		<option value="2">Prospecting Progress	</option>
 																		<option value="3">Closing Deal</option>
-																		<option value="4">Deal</option>
+																		<option value="4">Fail</option>
 																		<option value="5">Project Progress</option>
 																	</select>
 																</div>
@@ -92,12 +93,13 @@
 																</div>
 															
 														
-													</form>
+													
 												</div>
 												<div class="modal-footer no-bd">
 													<input type="submit" id="addPlan" name="addPlan" class="btn btn-primary" value="Add">
 													<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 												</div>
+												</form>
 											</div>
 										</div>
 									</div>

@@ -1,7 +1,7 @@
 <?php
     class modelActivity_am extends CI_Model
     {
-
+        public const TABLE_NAME ='activity';
         
         public function search_blog($nama){
             $this->db->like('nama_customer', $nama , 'both');
@@ -79,5 +79,11 @@
             $query=$this->db->get()->result();
             return $query;
             }
+
+        public function addCustomer($cust)
+        {
+                $this->db->insert($this::TABLE_NAME,$cust);          
+        }
+
     }
 ?>

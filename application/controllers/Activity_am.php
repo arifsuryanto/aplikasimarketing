@@ -11,6 +11,9 @@ class Activity_am extends CI_Controller {
             redirect('login?pesan=Silakan Login dahulu');
         }
         $this->load->model("modelActivity_am");
+        
+        
+
         error_reporting(0);
     }
 
@@ -53,6 +56,8 @@ class Activity_am extends CI_Controller {
         $getActivity['activities']=$this->modelActivity_am->getJoinActivity("*","activity","type_act","stage",
         "customer","type_act.id_type=activity.id_type","stage.id_stage=activity.id_stage",
         "customer.id_customer=activity.id_customer","activity.done=1","time");
+
+
         $this->load->view ('am/activity_template/header',$data); 
         $this->load->view ('am/activity_template/sidebar',$data); 
         $this->load->view ('am/activity_template/topbar',$data); 
@@ -106,10 +111,19 @@ class Activity_am extends CI_Controller {
         echo json_encode($data);
         
     }
-
+    
     public function addCust()
     {
-        
+        $cust = array(
+			'name_activity' => $this->input->post('name_activity'),
+			'id_type' => $this->input->post('type'),
+            'id_customer' => $this->input->post('id_customer'),
+            'id_stage' => $this->input->post('stage'),
+            'note' => $this->input->post('note'),
+            'id_am' =>$this->session->userdata('id_am')
+		);
+        $this->modelActivity_am->addCustomer($cust);
+        redirect('/Activity_am');
     }
 
 

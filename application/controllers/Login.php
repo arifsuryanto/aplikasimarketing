@@ -31,6 +31,7 @@ class Login extends CI_Controller
 			if($cek)
 			{
 				$this->session->set_userdata(array('kode_am'=>$kode_am));
+				$this->session->set_userdata(array('id_am'=>$cek->id_am));
 				$this->session->set_userdata(array('password'=>$password));		
 				
 				if ($cek->previlege == "SPV") 
