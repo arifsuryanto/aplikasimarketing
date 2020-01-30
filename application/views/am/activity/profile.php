@@ -23,15 +23,15 @@
                         </div>
                         <div class="form-group">
                             <label for="username">Code</label>
-                            <input type="text" class="form-control" id="kode" value="<?=$profile->kode_am;?>">
+                            <input type="text" class="form-control" id="kode_am" name="kode_am" value="<?=$profile->kode_am;?>" readonly>
                         </div>
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" value="<?=$profile->nama_am;?>">
+                            <input type="text" class="form-control" id="nama_am" name="name_am" value="<?=$profile->nama_am;?>">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" value="<?=$profile->password;?>">
+                            <input type="password" class="form-control" id="password" name="password" value="<?=$profile->password;?>">
                         </div>
                         <button type="submit" name="change" class="btn btn-warning">Change</button>
                         </form>

@@ -11,9 +11,7 @@ class Activity_am extends CI_Controller {
             redirect('login?pesan=Silakan Login dahulu');
         }
         $this->load->model("modelActivity_am");
-        
-        
-
+        $this->load->library('form_validation');
         error_reporting(0);
     }
 
@@ -120,7 +118,7 @@ class Activity_am extends CI_Controller {
 		$update = [	'id_activity' => $id_activity,'done' => '1',
 	];
 	$this->modelActivity_am->update($update);
-    redirect(base_url('activity_am'));
+    redirect(base_url('activity_am/index'));
     }
     
     public function getCust()
@@ -141,7 +139,8 @@ class Activity_am extends CI_Controller {
             'id_am' =>$this->session->userdata('id_am')
 		);
         $this->modelActivity_am->addCustomer($cust);
-        redirect('/Activity_am');
+        redirect('/activity_am/index');
+        
     }
 
 

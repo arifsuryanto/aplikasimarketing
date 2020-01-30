@@ -24,7 +24,8 @@
 							<div class="collapse in" id="collapseExample">
 								<ul class="nav">
 									<li>
-										<a href="<?=base_url('activity_am/profile')?>">
+									<?php $kode_am=$this->session->userdata('kode_am')?>
+										<a href="<?=base_url('activity_am/profile?kode_am='.$kode_am)?>">
 											<span class="link-collapse">My Profile</span>
 										</a>
 									</li>
