@@ -27,30 +27,29 @@
 														<span aria-hidden="true">&times;</span>
 													</button>
 												</div>
-												<div class="modal-body">
-													<form  action="<?=base_url('activity_am/addCust')?>" method="post">
-																<div class="form-group">
-																	<label>Name Activity</label>
-																	<input name="name_activity" id="name_activity" type="text" class="form-control" placeholder="Fill Name Activity">
-																</div>
+											<div class="modal-body">
+												<form  action="<?=base_url('activity_am/addPlan')?>" method="post">
+													<div class="form-group">
+														<label>Name Activity</label>
+														<input name="name_activity" id="name_activity" type="text" class="form-control" placeholder="Fill Name Activity">
+													</div>
 
-																<div class="form-group">
-																	<label>Type</label>
-																															
-																	<select  id="type" name="type" class="form-control">
-																		<option value="1">Call</option>
-																		<option value="2">Administration</option>
-																		<option value="3">Email/Fax</option>
-																		<option value="4">Customer Meeting</option>
-																		<option value="5">Visitation</option>
-																		<option value="6">Product Presentation</option>
-																	</select>
-																</div>
+													<div class="form-group">
+														<label>Type</label>																														
+														<select  id="type" name="type" class="form-control">
+															<option value="1">Call</option>
+															<option value="2">Administration</option>
+															<option value="3">Email/Fax</option>
+															<option value="4">Customer Meeting</option>
+															<option value="5">Visitation</option>
+															<option value="6">Product Presentation</option>
+														</select>
+													</div>
 
 																<div class="form-group ui-front">
 																	<label>Customer</label>
 																	<input id="customer" name="customer" type="text" class="form-control" placeholder="Fill Customer">
-																	<input id="id" name="id_customer" type="hidden" class="form-control" placeholder="Fill Customer">
+																	<input id="id" name="id_customer" type="text" class="form-control" placeholder="Fill Customer">
 																
 																<!-- Autocomplete customer -->
 																<link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
@@ -73,7 +72,7 @@
 																});
 																</script>
 																<!--  END Autocomplete customer -->
-																<button class="btn btn-warning">Add Customer</button>
+																<a href="<?php echo base_url('activity_am/customer');?>" class="btn btn-warning">Add Customer</a>
 																</div>
 
 																<div class="form-group">
@@ -91,18 +90,15 @@
 																	<label>Noted</label>
 																	<input name="note" id="note" class="form-control">
 																</div>
-															
-														
-													
+														</div>
+														<div class="modal-footer no-bd">
+															<input type="submit" id="addPlan" name="addPlan" class="btn btn-primary" value="Add">
+															<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+														</div>
+													</form>
 												</div>
-												<div class="modal-footer no-bd">
-													<input type="submit" id="addPlan" name="addPlan" class="btn btn-primary" value="Add">
-													<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-												</div>
-												</form>
 											</div>
 										</div>
-									</div>
 
 									<div class="table-responsive">
 										<table id="add-row" class="display table table-striped table-hover table-border" >
@@ -139,14 +135,7 @@
 													<td><?=$plan->nama_customer;?></td>
 													<td><?=$plan->time;?></td>
 													<td><?=$plan->note;?></td>
-													<td>
-														<a href='' id='btn-edit' class="btn btn-warning" data-id='<?php echo $plan->id_activity;?>'>Edit </a>
-														<!-- <a href="" data-toggle="modal" data-target="#btn-edit" class="btn btn-warning" data-id="<?=$plan->id_activity;?>">Edit</a> -->
-														<!-- <button class="btn btn-warning editbtn" id="#editplan" data-toggle="modal" data-target="#editplan" 
-														data-id="<?=$plan->id_activity;?>" data-nama="<?=$plan->name_activity;?>" 
-														data-type="<?=$plan->type;?>" data-stage="<?=$plan->stage ;?>" data-customer="<?=$plan->nama_customer;?>"
-														data-time="<?=$plan->time;?>" data-note="<?=$plan->note;?>">Edit</button> -->
-													</td>
+													<td><a class="btn btn-xs btn-info" data-toggle="modal" data-target="#editPlan<?=$plan->id_activity;?>"> Edit</a></td>
 													<td>
 													<a class="btn btn-warning" href="<?=base_url(); ?>activity_am/update/<?=$plan->id_activity?>" onclick="return confirm ('Sudah yakin ?')" >Done</a>
 													</td>
@@ -155,8 +144,24 @@
 												
 											</tbody>
 										</table>
-										<!-- Modal Edit -->
-									<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+									</div>
+								</div>
+
+
+								<!-- Modal Edit-->
+								<?php 
+									foreach($plans as $plan)
+									{	$idPlan=$plan->id_activity;
+										$namaPlan=$plan->name_activity;
+										$idType=$plan->id_type;
+										$namaCust=$plan->nama_customer;
+										$idCust=$plan->id_customer;
+										$idStage=$plan->id_stage;
+										$noted=$plan->noted;
+								
+									?>
+
+									<div class="modal fade" id="editPlan<?=$plan->id_activity;?>" tabindex="-1" role="dialog" aria-hidden="true">
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
 												<div class="modal-header no-bd">
@@ -168,42 +173,30 @@
 														<span aria-hidden="true">&times;</span>
 													</button>
 												</div>
-												<div class="modal-body">
-													<form method="post" action="">
-																<input type="text" name="id_activity" class="form-control" value="">
-																<div class="form-group">
-																	<label>Name Activity</label>
-																	<input name="name_activity" id="name_activity" type="text" class="form-control" placeholder="Fill Name Activity">
-																</div>
+											<div class="modal-body">
+												<form  action="<?=base_url('activity_am/UpdatePlan')?>" method="post">
+													<div class="form-group">
+														<label>Name Activity</label>
+														<input name="EditIdAct" id="id_activity" type="hidden" class="form-control" value="<?=$idPlan;?>">
+														<input name="EditNameAct" id="name_activity" type="text" class="form-control" value="<?=$namaPlan;?>">
+													</div>
 
-																<div class="form-group ui-front">
-																	<label>Type</label>
-																	<input id="type" name="type" type="text" class="form-control" placeholder="Fill Type">
-																
-																<!-- Autocomplete type -->
-																<link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
-																<link rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'?>">
-																<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-																<script src="<?php echo base_url().'assets/js/bootstrap.js'?>" type="text/javascript"></script>
-																<script src="<?php echo base_url().'assets/js/jquery-ui.js'?>" type="text/javascript"></script>
-																
-																<script type="text/javascript">
-															
-																	$(document).ready(function(){
-
-																	$('#type').autocomplete({
-																			source: "<?php echo base_url('activity_am/autocomplete_type');?>",
-																			
-																		});
-																	
-																});
-																</script>
-																<!--  END Autocomplete type -->
-																</div>
+													<div class="form-group">
+														<label>Type</label>	
+														<select  id="EditType" name="EditType" class="form-control">				
+															<option value="1">Call</option>
+															<option value="2">Administration</option>
+															<option value="3">Email/Fax</option>
+															<option value="4">Customer Meeting</option>
+															<option value="5">Visitation</option>
+															<option value="6">Product Presentation</option>
+														</select>
+													</div>
 
 																<div class="form-group ui-front">
 																	<label>Customer</label>
-																	<input id="customer" name="customer" type="text" class="form-control" placeholder="Fill Customer">
+																	<input id="EditNameCust" name="EditNameCust" type="text" value="<?=$namaCust;?>" class="form-control" placeholder="Fill Customer">
+																	<input id="id" name="EditIdCust" type="hidden" value="<?=$idCust;?>" class="form-control" placeholder="Fill Customer">
 																
 																<!-- Autocomplete customer -->
 																<link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
@@ -216,85 +209,48 @@
 										
 																	$(document).ready(function(){
 
-																	$('#customer').autocomplete({
+																	$('#EditNameCust').autocomplete({
 																			source: "<?php echo base_url('activity_am/get_autocomplete');?>",
+																			select: function (event, ui) {
+																			$('[name="EditNameCust"]').val(ui.item.EditNameCust); 
+																			$('[name="EditIdCust"]').val(ui.item.id); 
+																			  }
 																		});
 																});
 																</script>
 																<!--  END Autocomplete customer -->
-																<button class="btn btn-warning">Add Customer</button>
+																<a href="<?php echo base_url('activity_am/customer');?>" class="btn btn-warning">Add Customer</a>
 																</div>
 
-																<div class="form-group ui-front">
+																<div class="form-group">
 																	<label>Stage</label>
-																	<input id="stage" name="stage" type="text" class="form-control" placeholder="Fill Stage">
-																
-																<!-- Autocomplete stage -->
-																<link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
-																<link rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'?>">
-																<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-																<script src="<?php echo base_url().'assets/js/bootstrap.js'?>" type="text/javascript"></script>
-																<script src="<?php echo base_url().'assets/js/jquery-ui.js'?>" type="text/javascript"></script>
-																
-																<script type="text/javascript">
-										
-																	$(document).ready(function(){
-
-																	$('#stage').autocomplete({
-																			source: "<?php echo base_url('activity_am/autocomplete_stage');?>",
-																		});
-																});
-																</script>
-																<!--  END Autocomplete stage -->
+																	<select  id="EditStage" name="EditStage" class="form-control">
+																		<option value="1">Open Prospect</option>
+																		<option value="2">Prospecting Progress	</option>
+																		<option value="3">Closing Deal</option>
+																		<option value="4">Fail</option>
+																		<option value="5">Project Progress</option>
+																	</select>
 																</div>
 
 																<div class="form-group">
 																	<label>Noted</label>
-																	<textarea name="note" id="note" class="form-control"></textarea>
+																	<input name="EditNote" id="EditNote" value="<?=$noted?>" class="form-control">
 																</div>
-															
-														
+														</div>
+														<div class="modal-footer no-bd">
+															<input type="submit" id="updatePlan" name="updatePlan" class="btn btn-primary" value="Update">
+															<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+														</div>
 													</form>
 												</div>
-												<div class="modal-footer no-bd">
-													<input type="submit" id="addPlan" name="addPlan" class="btn btn-primary" value="Edit">
-													<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-												</div>
 											</div>
-										</div>
-									</div>
-									<link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
-									<link rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'?>">
-									<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-									<script src="<?php echo base_url().'assets/js/bootstrap.js'?>" type="text/javascript"></script>
-									<script src="<?php echo base_url().'assets/js/jquery-ui.js'?>" type="text/javascript"></script>
-																
-									<script type="text/javascript">
-									$(document).ready(function() {
-									$('.editbtn').on('click',function(){
-										$('#editplan').modal('show');//bootstrap thing
-										
-										$tr = $(this).closest('tr');
-										var data = $tr.children("td").map(function(){
-										return $(this).text();
-										}).get();
-
-										console.log(data);
-
-										$('id_activity').val(data[0]);
-										$('activity').val(data[1]);
-										// $('type').val(data[2]);
-										// $('customer').val(data[3]);
-										// $('stage').val(data[4]);
-										// $('note').val(data[5]);
-										});
-										});
-									</script>
-
-									</div>
+										</div>											
+									<?php }?>
 					</div>
-				</div>
-            </div>
-        </div>
+            	</div>
+        	</div>
 	</div>
 </div>
+
+

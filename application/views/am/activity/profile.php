@@ -13,14 +13,11 @@
                         <center>
                         <div class="avatar avatar-xxl">
 							<img src="<?=base_url('assets/')?>img/jm_denis.jpg" alt="..." class="avatar-img rounded-circle">
-                            <h5 class="card-title" align="center"> <?=$profile->nama_am;?></h5>
+                            <h5 class="card-title" align="center"> AM's Name</h5>
                         </div>
                         </center>
                         
-                        <form method="post" action="<?=base_url('activity_am/profile')?>">
-                        <div class="form-group">
-                            <input type="hidden" class="form-control" id="id_am" name="id_am" value="<?=$profile->id_am;?>" readonly>
-                        </div>
+                        <form>
                         <div class="form-group">
                             <label for="username">Code</label>
                             <input type="text" class="form-control" id="kode_am" name="kode_am" value="<?=$profile->kode_am;?>" readonly>
@@ -32,8 +29,17 @@
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" name="password" value="<?=$profile->password;?>">
+                            <input type="text" class="form-control" id="kode" value="<?=$profiles->kode_am;?>">
                         </div>
-                        <button type="submit" name="change" class="btn btn-warning">Change</button>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" value="<?=$profiles->nama_am;?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" value="<?=$profiles->password;?>">
+                        </div>
+                        <button type="submit" class="btn btn-warning">Change</button>
                         </form>
                        
                             		

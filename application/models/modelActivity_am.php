@@ -80,10 +80,17 @@
             return $query;
             }
 
-        public function addCustomer($cust)
+        public function addPlan($plan)
         {
-                $this->db->insert($this::TABLE_NAME,$cust);          
+                $this->db->insert($this::TABLE_NAME,$plan);          
         }
+
+        public function updatePlan($plan)
+        {   
+            $this->db->update($this::TABLE_NAME,$plan, array('id_activity'=>$plan['id_activity']));
+            
+        }
+
 
     }
 ?>
