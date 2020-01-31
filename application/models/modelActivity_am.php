@@ -39,7 +39,7 @@
         }
         public function getData($kolom,$table,$where=false)
         {
-            if($where=true)
+            if($where)
             {
                 return $this->db
                     ->select($kolom)//function bawaan dari CI untuk akses databasenya
