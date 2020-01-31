@@ -22,7 +22,8 @@ class C_menu extends CI_Controller
 			$cek="SELECT previlege from am";
 			if($cek=='SPV') 
 				{
-					$this->load->view('Activity_am/activity'); //activity SP
+					redirect(base_url('Activity_sv/index'));
+					//$this->load->view('Activity_am/activity'); //activity SP
 				}
 		    else 
 				{
