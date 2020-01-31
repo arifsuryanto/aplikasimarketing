@@ -57,6 +57,12 @@
             }
             
         }
+        function updateData($table,$set,$where)
+        {
+            return $this->db
+                        ->where($where)
+                        ->update($table,$set);
+        }
         public function update($done)
         {
             $this->db->update('activity',$done, array('id_activity'=>$done['id_activity']));

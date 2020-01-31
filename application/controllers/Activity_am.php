@@ -60,7 +60,8 @@ class Activity_am extends CI_Controller {
                 'nama_am'=>$name,
                 'password'=>$pass
             );
-            $this->modelActivity->updateData('am',$data,$where);
+            $data['profile']=$this->modelActivity->updateData('am',$data,$where);
+            
         }
         $this->load->view ('am/activity_template/header',$data); 
         $this->load->view ('am/activity_template/sidebar',$data); 

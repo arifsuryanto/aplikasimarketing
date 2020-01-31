@@ -17,7 +17,7 @@
                         </div>
                         </center>
                         
-                        <form>
+                        <form method="post" action="<?=base_url('activity_am/profile')?>">
                         <div class="form-group">
                             <label for="username">Code</label>
                             <input type="text" class="form-control" id="kode_am" name="kode_am" value="<?=$profile->kode_am;?>" readonly>
@@ -31,7 +31,7 @@
                             <input type="password" class="form-control" id="password" name="password" value="<?=$profile->password;?>">
                             <input type="text" class="form-control" id="kode" value="<?=$profiles->kode_am;?>">
                         </div>
-                        <button type="submit" class="btn btn-warning">Change</button>
+                        <button type="submit" name="change" class="btn btn-warning">Change</button>
                         </form>
                        
                             		
