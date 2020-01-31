@@ -49,7 +49,7 @@
 																<div class="form-group ui-front">
 																	<label>Customer</label>
 																	<input id="customer" name="customer" type="text" class="form-control" placeholder="Fill Customer">
-																	<input id="id" name="id_customer" type="text" class="form-control" placeholder="Fill Customer">
+																	<input id="id" name="id_customer" type="hidden" class="form-control" placeholder="Fill Customer">
 																
 																<!-- Autocomplete customer -->
 																<link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
